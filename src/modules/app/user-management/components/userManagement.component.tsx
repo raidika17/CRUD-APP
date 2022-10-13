@@ -47,10 +47,12 @@ export default function UserManagement() {
     departement: "",
   });
 
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState("");
 
   useEffect(() => {
-    getAllUser();
+    const tokenStorage = window.localStorage.getItem("token");
+    setToken(tokenStorage);
+    getAllUser(tokenStorage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -72,26 +74,31 @@ export default function UserManagement() {
         Authorization: "bearer " + token,
         "Content-Type": "application/json",
       }),
-    });
-    getAllUser();
+    })
+      .then((res) => {
+        return res;
+      })
+      .then((data) => {
+        if (data) {
+          getAllUser();
+        }
+      });
   };
 
-  const getAllUser = () => {
-    setTimeout(() => {
-      fetch("https://be-ksp.analitiq.id/user/?page=1&page_size=10", {
-        method: "GET",
-        headers: new Headers({
-          Authorization: "bearer " + token,
-          "Content-Type": "application/json",
-        }),
+  const getAllUser = (tokenParams = "") => {
+    fetch("https://be-ksp.analitiq.id/user/?page=1&page_size=10", {
+      method: "GET",
+      headers: new Headers({
+        Authorization: "bearer " + (tokenParams || token),
+        "Content-Type": "application/json",
+      }),
+    })
+      .then((res) => {
+        return res.json();
       })
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setData(data.results);
-        });
-    }, 1000);
+      .then((data) => {
+        setData(data.results);
+      });
   };
 
   const userActive = (active: boolean) => {
@@ -117,9 +124,16 @@ export default function UserManagement() {
         is_active: isActive,
         departement: departement,
       }),
-    });
-    getAllUser();
-    toggle();
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data) {
+          getAllUser();
+          toggle();
+        }
+      });
   };
 
   const handleUpdate = () => {
@@ -137,9 +151,16 @@ export default function UserManagement() {
         is_active: newIsActive,
         departement: newDepartement,
       }),
-    });
-    toggleUpdate();
-    getAllUser();
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data) {
+          getAllUser();
+          toggleUpdate();
+        }
+      });
   };
 
   const handleOnChange = (e: any) => {

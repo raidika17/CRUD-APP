@@ -38,7 +38,7 @@ export default function LoginComponent({ url }) {
         if (data.message == "Invalid Credentials") {
           alert("Email atau password anda salah !");
         } else if (data.message == undefined) {
-          localStorage.setItem("token", data.token);
+          window.localStorage.setItem("token", data.token);
           Router.push("/admin/dashboard");
         }
       });
