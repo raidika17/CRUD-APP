@@ -1,34 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## This CRUD APP uses
+- NEXT.JS framework with typescript v4.8.4
+- css style using Reactsctap v9, Bootstrap v5 and css module
+- Node v16
+## Quick start
 
-## Getting Started
+- run `npm i` or `npm install`
+- run `npm run dev`
 
-First, run the development server:
+## File Structure
+Within the download you'll find the following directories and files:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+|--- tsconfig.json
+|--- README.md
+|--- package.json
+|--- package-lock.json
+|--- next.congig.js
+|--- next-env.d.ts
+|--- .gitignore
+|--- .eslintrc.json
+|___ src
+    |--- assets
+    |   |--- icons
+    |   |    |--- arrow_down_click.png
+    |   |    |--- arrow_down.png
+    |   |    |--- dashboard_click.png
+    |   |    |--- dashboard_unclick.png
+    |   |    |--- delete_icon.png
+    |   |    |--- edit_icon.png
+    |   |    |--- menu.png
+    |   |    |--- plus-outlined.png
+    |   |    |--- sales_click.png
+    |   |    |--- sales_unclick.png
+    |   |    |--- search.png
+    |   |    |--- user-management_click.png
+    |   |    |--- user-management_unclick.png
+    |   |___ images
+    |        |--- Arlo-pro-4.png
+    |        |--- block-chart.png
+    |        |--- blurry.png
+    |        |--- circle-chart.png
+    |        |--- Nighthawl-R7800.png
+    |        |--- r6330-netgear.png
+    |        |--- webcam-c310.png
+    |        |__ WN821N.png
+    |   
+    |--- modules
+    |    |___ app
+    |         |---dashboard
+    |         |    |---components
+    |         |    |   |___dashboard.component.tsx
+    |         |    |---styles
+    |         |        |---dashboard.style.tsx
+    |         |        |___dashboard.module.css
+    |         |
+    |         |---login
+    |         |    |---components
+    |         |    |   |___login.component.tsx
+    |         |    |---styles
+    |         |        |---login.style.tsx
+    |         |        |___login.module.css
+    |         |
+    |         |---navbar
+    |         |    |---components
+    |         |    |   |___navbar.component.tsx
+    |         |    |---styles
+    |         |        |---navbar.style.tsx
+    |         |        |___navbar.module.css
+    |         |
+    |         |---sales
+    |         |    |---components
+    |         |    |   |___sales.component.tsx
+    |         |    |---styles
+    |         |        |---sales.style.tsx
+    |         |        |___sales.module.css
+    |         |
+    |         |---user-management
+    |         |    |---components
+    |         |    |   |___userManagement.component.tsx
+    |         |    |___styles
+    |
+    |--- pages
+    |    |--- admin
+    |    |    |___ dashboard.tsx
+    |    |
+    |    |--- api
+    |    |    |--- dataDummy
+    |    |    |    |___ sales.tsx
+    |    |    |___ login.ts
+    |    |
+    |    |--- auth
+    |    |     |___ login.tsx
+    |    |
+    |    |--- _app.tsx
+    |    |--- _document.tsx
+    |    |___ index.tsx
+    |    
+    |--- public
+    |    |--- favicon.ico
+    |    |--- vercel.svg
+    |___ styles
+         |--- globals.css
+         |___ Home.module.css

@@ -1,0 +1,28 @@
+.label {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+  text-transform: capitalize;
+  color: #03050b;
+}
+
+.label_desc {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 23px;
+  color: #03050b;
+  opacity: 0.55;
+}
+
+@media (max-width: 375px) {
+  .categories,
+  .amount,
+  .item_sold,
+  .price {
+    display: none;
+  }
+}
